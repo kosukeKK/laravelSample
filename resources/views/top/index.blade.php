@@ -1,0 +1,11 @@
+aaa
+@extends('layouts.base')
+@section('title')
+    title
+@endsection
+@section('body')
+    @parent
+    sub
+@stop
+asdasdfadfasdf
+index
