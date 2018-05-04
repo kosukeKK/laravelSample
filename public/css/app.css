@@ -17,6 +17,11 @@
   text-align: center;
 }
 
+.pagenate {
+  margin: 0 auto;
+  width: 0px;
+}
+
 /*!
  * Bootstrap v4.1.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors

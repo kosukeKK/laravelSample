@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+    <div class="pagenate">{{ $articles->links() }}</div>
     @foreach($articles as $article)
         {{--{{eval(\Psy\sh())}}--}}
         <div class="article-list">
@@ -20,5 +21,6 @@
             @endif
         </div>
     @endforeach
+    <div class="pagenate">{{ $articles->links() }}</div>
 @endsection
 

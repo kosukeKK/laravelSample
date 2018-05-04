@@ -15,7 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::orderBy('created_at', 'ASC')->paginate(15);
 //        eval(\Psy\sh());
         return view('article/index', ['articles' => $articles, 'loginUser' => Auth::user()]);
     }
