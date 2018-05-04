@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
-use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
@@ -28,6 +27,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
+        if(!$this->isLogin()) return redirect('login');
         return view('article/create');
     }
 
@@ -66,8 +66,10 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        return 'aa';
+        if(!$this->isLogin()) return redirect('login');
+        return view('article/edit', ['id'=> $id]);
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -78,7 +80,11 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $article = Article::find($id);
+        $article->title = $request->title;
+        $article->text = $request->text;
+        $article->save();
+        return redirect('article');
     }
 
     /**
@@ -89,7 +95,12 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
+        if(!$this->isLogin()) return redirect('login');
         Article::find($id)->delete();
         return redirect('article');
+    }
+
+    private function isLogin() {
+        return (Auth::check()) ? true : false;
     }
 }
