@@ -3,10 +3,10 @@
     <form method="post" action="{{ url('article') }}">
         @csrf
         <label for="title">title</label>
-        <input type="text" name="title"/><br>
+        <textarea type="text" name="title"></textarea><br>
 
         <label for="text">text</label>
-        <input type="text" name="text"/><br>
+        <textarea type="text" name="text"></textarea><br>
 
         <input type="submit"/>
     </form>

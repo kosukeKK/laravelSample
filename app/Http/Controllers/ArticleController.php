@@ -67,7 +67,8 @@ class ArticleController extends Controller
     public function edit($id)
     {
         if(!$this->isLogin()) return redirect('login');
-        return view('article/edit', ['id'=> $id]);
+        $article = Article::find($id);
+        return view('article/edit', ['article'=> $article]);
     }
 
 
