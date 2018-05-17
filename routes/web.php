@@ -17,4 +17,5 @@ Route::resource('article', 'ArticleController');
 
 Auth::routes();
 
-Route::get('/home', 'ArticleController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/home', 'HomeController@upload')->name('home.upload');
